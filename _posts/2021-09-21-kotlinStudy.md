@@ -296,6 +296,7 @@ val arraList1 = arrayListOf(1,"d",3)
 - mutableList인터페이스를 상속받은 ArrayList는 mutableList의 set메소드가 존재하므로 읽기만 가능한 List와는 다르게 쓰기도 가능
 <br>
 <br>
+  
 ___
 
 ## 📚 Nullable / NonNull
