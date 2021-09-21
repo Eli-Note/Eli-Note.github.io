@@ -101,11 +101,71 @@ val boolNull: boolean? = null
 
 ___
 
+## 📚 Template
+```kotlin
+var name = "hyo-sang"
+var lastName = "Seong"
+println("my name is ${name}lastName")
+
+println("my name is ${name + lastName}.")
+
+println("my name is ${name}\${lastName}.")
+
+println("my name is ${name}\\lastName")
+```
+
+📌자바와의 차이점
+
+- ' + '가 아닌 ' ${내용} ' 을 사용 '{ }'는 띄어쓰기 구분 용도
+
+- 변수 두개가 이어질 경우 ' ${ } '안에서 + 사용 가능
+
+- ' $변수명 '뒤에 ' \ '를 붙이면 변수명뒤로는 문자취급 
+
+- ' $변수명 '뒤에 ' \ '를 문자로 넣고 싶을시, ' 역슬래쉬 두번 '입력
+
+___
+
 ## 📚 반복문
 <br>
 
+### 📙for, while문
+```kotlin
+
+for (변수 in 시작..끝 step 증가량) {
+
+}
+
+for (변수 in 시작 until 끝){ // 끝 미포함  
+
+}
+
+for (변수 in 끝 down 시작 ) {
+
+}
+
+for (변수 in 배열명.indices) { //배열요소 한번에 출력
+
+}
+
+for (변수 in 배열명) { //배열요소 하나씩 출력
+
+}
+
+for ((index : index, name : String) in name.indeces.withIndex()) {
+
+}
+```
+📌자바와의 차이점
+
+- 표기변경 ' .길이 ' 에서 ' .indices ' 또는 생략
+
+<br>
+
 ### 📙when문
->구문식
+<br>
+
+>구문식 (Expresstion)
 ```kotlin
 var jumsu : Int = (count / 10) * 10
 when(jumsu) {
@@ -122,7 +182,7 @@ in 69..60 -> print("3순위") //범위지정
 
 }
 ```
->표현식
+>표현식 (Statement)
 ```kotlin
 var b : Int = when(scope) {
 1 -> 1
@@ -154,81 +214,118 @@ else -> 3
 - 표기변경 ' default ' 에서 ' else ' 로
 <br>
 <br>
+___
 
-### 📒1차원 배열
+## 📚 Array(배열) and List
+<br>
+
+### 📙Array(배열)
+<br>
+
+> 1차원 배열
 ```kotlin
 var one = Array<Int>(4,{0})
+
+val array = arrayOf(1,2,3)
+
+val arrayOf = arrayOf(1, "d", 3.14f)
 
 one[0] = 10
 one[1] = 20
 
-var 배열명 : IntArray = intArrayOf(1,2,3) //값을 바로 입력
 ```
 
 
-### 📒2차원 배열
+> 2차원 배열
 ```kotlin
-var two = Array<IntArray>(3, {IntArray(4)} // 3행 4열
+var arr1 = Array(2){Array(3){i->(5)}} //2행 3열 초기화값 5
+
+var arr2 = arrayOf( arrayOf(5,5,5), arrayOf(5,5,5) ) //위와 동일
+
+val arr3 = Array(2){ i -> Array(3){ j ->(i*3) + (j+1)}} // [{1,2,3},{4,5,6}]
+
+var count2 = 0
+    for((count1, i) in arr1.indices.withIndex()){
+        for(j in arr1[i]){
+            println("${count1}행 ${count2}열의 값은 $j 입니다.")
+            count2++
+        }
+        if(count2 == arr1[i].size){
+            count2 = 0;
+        }
+    }
 ```
 📌자바와의 차이점
+- val를 쓰는 이유는 주소값을 참조하므로
+- 1차원 배열
+  - var 배열명 = Array<데이터 타입>(갯수, {초기화값})
 
-- var 배열명 = Array<데이터 타입>(갯수, {초기화값})
-- 배열명[인덱스] = 값 입력
+  - var 배열명 : IntArray = intArrayOf(1,2,3) //값을 바로 입력
+  
+  - 데이터 타입 혼용 가능
 
- - var 배열명 : IntArray = intArrayOf(1,2,3) //값을 바로 입력
+  - 배열명[인덱스] = 값 입력
 
-- 2차원 배열은 1차원 배열의 "초기화값"자리에 "{데이터타입(갯수)}를 넣음
 
-  - var 배열명 = Array<데이터 타입>(갯수, {데이터타입(갯수)}}
 
+- 2차원 배열
+  - var 배열명 = Array(행 갯수){ Array(열 갯수), { _->(초기확 값)} }
+
+  - 1차원 배열의 "초기화값"자리에 " 1행에 대한 arrayOf(값), 2행에 대한 arrayOf(값) "를 넣음
+
+  - 자바코드로 바꿔서 이해 할 예정
+  
+  - java의 확장형 for문으로 값을 출력하는 것과 같음
+<br>
+<br>
+### 📙List
 <br>
 
+>List
+```kotlin
+val list1 = listOf(1,"d",11L) 
+```
 
-### 📙for, while문
-
-for (변수 in 시작..끝 step 증가량) {
-
-}
-
-for (변수 in 배열명.indices) { //배열요소 한번에 출력
-
-}
-
-for (변수 in 배열명) { //배열요소 하나씩 출력
-
-}
+>MutableList(수정가능)
+```kotlin
+val arraList1 = arrayListOf(1,"d",3)
+```
+📌List와 mutableList의 차이점
+- mutableList인터페이스를 상속받은 ArrayList는 mutableList의 set메소드가 존재하므로 읽기만 가능한 List와는 다르게 쓰기도 가능
+<br>
+<br>
 ___
 
-## 📚 Template
+## 📚 Nullable / NonNull
+<br>
+
+```kotlin
+var nullName : String? = null
+
+val nullNameInUC = nullName.?toUpperCase()
+
+val name = "joyce"
+val lastName : String? = null
+var fullName = name + (lastName ?: "Hong")
+
+fun igonoreNulls(str: String?){
+    val mNotNull: String = str!!
+
+val email: String? = "tjdgytkd!naver.com"
+email?.let{
+        println("my email is $email")
+    }
+}
 
 
+```
 📌자바와의 차이점
+- 자료형뒤에 ' ? '이 붙지 않을 경우, null 입력이 불가능 
 
-- ' + '가 아닌 ' ${내용 } ' 을 사용 '{ }'는 띄어쓰기 구분 용도
+- 메소드 사용시에는 객체명뒤에 ' ? '을 붙이면 null값일시, Skip
 
-- ' \ '의 구분은 ' \\ ' 출력시 -> ' \ '만 나오게 됌
+- " 객체명?: "는 null값일떄 실행
 
-- " ${내용}$ "의 구분은 ' \ '를 이용 -> " ${내용}\$ "
+- " 객체명?.let "는 null값이 아닐떄 실행
 
-___
-
-## 📚 Scope Function (apply, with, let, also, run)
-
-
-< apply >
-
-
-
-< with >
-
-
-< let >
-
-
-< also >
-
-
-< run >
-
-___
-
+- ' !! '는 NonNull로 선언
