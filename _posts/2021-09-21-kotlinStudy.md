@@ -20,6 +20,7 @@ fun sum(a: Int, b: Int): Int {
 }
 ```
 >표현식
+
 ``` kotlin
 fun sum(a: Int, b: Int) = a + b
 
