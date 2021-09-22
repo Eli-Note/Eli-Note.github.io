@@ -3,8 +3,7 @@ layout: single
 title: "코틀린 공부중"
 ---
 
-# 📢 기본 문법 - 작성중
-
+# 📢 문법 - 작성중
 ___
 
 ## 📚함수
@@ -27,17 +26,17 @@ fun max(a: Int, b: Int) = if (a>b) a else b
 
 `📌자바와의 차이점`
 
-1. 메소드 표시로 메소드명 앞에 ' fun '을 붙여줌.
+1. 메소드 표시로 메소드명 앞에 `fun`을 입력
 
-2. 파라메터작성을 ' 인자: 데이터 타입 ' 으로 작성한다.
+2. parameter 표기 기존 `데이터타입 객체명` 에서 `인자: 데이터 타입`로 변경
 
-3. 리턴형을 메소드명 앞이 아닌 파라메터 가로()의 우측에 ' : ' 를 열고서 우측에 써준다.
+3. 리턴형 표기가 기존 `메소드명 앞 ' 리턴형 '` 에서 `(파라메터) 우측 옆 ' : 리턴형 '`으로 변경
 
--  자료형 int를 Int로 표기
+-  자료형 표기가 ` int `에서 `Int`로 변경
 
 - void의 경우 void(Unit)생략 가능.
 
-- 기본 접근제한자가 public
+- 기본 접근제한자가 기존 ` defalut `에서 ` public `로 변경
 
 ___
 
@@ -191,25 +190,25 @@ else -> 3
 ```
 `📌자바와의 차이점`
 
-- 표기변경 ' switch ' 에서 ' when ' 으로
+- 표기변경 `switch` 에서 `when` 으로
 
-- 표기변경 ' : ' 에서 ' -> ' 로 
+- 표기변경 `:` 에서 `->` 로 
 
 - break 생략
 
-- ' , ' // 일부 항목지정 가능
+- `,`를 이용해서 일부 항목을 지정 가능
 
-- " in 시작숫자. .마지막 숫자 " // 범위지정 가능
+- `in 시작숫자. .마지막 숫자` // 범위지정 가능
 
-- ' !in ' // 위 항목의 부정
+- `!in` // 위 항목의 부정
 
-- ' !is ' // 논리판별
+- `!is` // 논리판별
 
 - 표현식 사용 가능
 
-- 표현식의 경우, 예외가 발생하지 않도록 else를 필수로 넣어야 됌
+- 표현식의 경우, 예외가 발생하지 않도록 else 입력 필수
 
-- 표기변경 ' default ' 에서 ' else ' 로
+- 표기변경 `default` 에서 `else` 로
 <br>
 <br>
 
@@ -291,7 +290,8 @@ val list1 = listOf(1,"d",11L)
 val arraList1 = arrayListOf(1,"d",3)
 ```
 `📌List와 mutableList의 차이점`
-- mutableList인터페이스를 상속받은 ArrayList는 mutableList의 set메소드가 존재하므로 읽기만 가능한 List와는 다르게 쓰기도 가능
+- `mutableList`인터페이스를 상속받은 ArrayList는 `mutableList`의 set메소드에 의해<br> 
+읽기만 가능한 List와 다르게 쓰기도 가능
 <br>
 <br>
 
@@ -373,11 +373,11 @@ fun main() {
 ```kotlin
 class Human(){
 
-    constructor(name : String, age : Int ) : this()  {
+    constructor(name: String, age: Int ): this()  {
         println("my name: $name \nmy age: $age")
     }
 
-    constructor(name2 : Int) : this(){
+    constructor(name2: Int): this(){
 
     }
 }
@@ -387,8 +387,8 @@ fun main() {
 }
 ```
 `📌자바와의 차이점`
-1. 오버로딩을 위해서는 클래스명 옆에 빈생성자를 붙여준다.
-2. 오버로딩한 생성자 옆에 ' : this() '를 붙여서 부모생성자 호출이 필수
+1. 오버로딩을 위해서는 클래스명 옆에 빈생성자 넣기
+2. 오버로딩한 생성자 옆에 `: this()`를 붙여서 부모생성자 호출이 필수
 <br>
 <br>
 
@@ -413,7 +413,8 @@ class Korean : Human(){
 }
 ```
 `📌자바와의 차이점`
--  Kotlin에서의 class는 final이므로 오버라이딩을 위해서는 모티브 대상의 맨 앞에 ' open '을 붙여준다.
+-  Kotlin에서의 class는 final이므로 오버라이딩을 위해서는 <br>
+모티브 대상의 앞에 `open`을 기입
 <br>
 <br>
 
@@ -482,7 +483,7 @@ fun invokeLamda(lamda : (Double) -> Boolean) : Boolean {
 `📌특징`
 - 메소드로 사용가능
 
-- 인자가 하나인 경우 ' it '으로 표기 가능
+- 인자가 하나인 경우 `it`으로 표기 가능
 
 - return으로 사용 가능
 
