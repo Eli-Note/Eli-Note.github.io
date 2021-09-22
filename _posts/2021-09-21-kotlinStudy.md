@@ -66,7 +66,6 @@ val boolNull: boolean? = null
 
 📌자바와의 차이점
 - final(고정값)을 val로 표시하고 final이 아닌경우 var로 표시
-<bar>
 
 - 타입추론이 가능하므로 자료형 생략가능
 
