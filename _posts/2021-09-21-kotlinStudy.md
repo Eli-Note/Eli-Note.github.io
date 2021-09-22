@@ -10,8 +10,7 @@ ___
 ## 📚함수
 <br>
 
-> 구문식 
-
+> 구문식 (Statement)
 ``` kotlin
 fun sum(a: Int, b: Int): Int {
 
@@ -19,25 +18,26 @@ fun sum(a: Int, b: Int): Int {
 
 }
 ```
->표현식
-
+>표현식 (Expresstion)
 ``` kotlin
 fun sum(a: Int, b: Int) = a + b
 
 fun max(a: Int, b: Int) = if (a>b) a else b
 ```
 
-📌자바와의 차이점
+`📌자바와의 차이점`
 
-- 메소드 표시로 메소드명 앞에 ' fun '을 붙여줌.
+1. 메소드 표시로 메소드명 앞에 ' fun '을 붙여줌.
 
-- 자료형 int를 Int로 표기
+2. 파라메터작성을 ' 인자: 데이터 타입 ' 으로 작성한다.
 
-- 파라메터작성을 ' 인자값: 자료형 ' 으로 작성한다.
+3. 리턴형을 메소드명 앞이 아닌 파라메터 가로()의 우측에 ' : ' 를 열고서 우측에 써준다.
 
-- 리턴형을 메소드명 앞이 아닌 파라메터 가로()의 우측에 ' : ' 를 열고서 우측에 써준다.
+-  자료형 int를 Int로 표기
 
-- void의 경우 void생략 가능.
+- void의 경우 void(Unit)생략 가능.
+
+- 기본 접근제한자가 public
 
 ___
 
@@ -64,13 +64,13 @@ ary!!.add(99)
 val boolNull: boolean? = null
 ```
 
-📌자바와의 차이점
+`📌자바와의 차이점`
 - final(고정값)을 val로 표시하고 final이 아닌경우 var로 표시
 
 - 타입추론이 가능하므로 자료형 생략가능
 
 - 기본적으로 null값이 들어가는 것이 불가능
-  
+
 - null값을 넣고싶을 경우 자료형 우측에 '?'를 붙이기
 
 - ' ? '이 널값 존재표기라면 반대로 널값 불가능표기는 변수명우측에' !! '로 표기
@@ -93,9 +93,8 @@ val boolNull: boolean? = null
 ||
 |실수형|Float|4 byte|약 1.4E-45 - 3.4E+38
 ||Double|8 byte|약 4.9E-324 - 1.7E+308
-
 <bar>
-  
+
 <bar>
 
 ___
@@ -113,7 +112,7 @@ println("my name is ${name}\${lastName}.")
 println("my name is ${name}\\lastName")
 ```
 
-📌자바와의 차이점
+`📌자바와의 차이점`
 
 - ' + '가 아닌 ' ${내용} ' 을 사용 '{ }'는 띄어쓰기 구분 용도
 
@@ -155,7 +154,7 @@ for ((index : index, name : String) in name.indeces.withIndex()) {
 
 }
 ```
-📌자바와의 차이점
+`📌자바와의 차이점`
 
 - 표기변경 ' .길이 ' 에서 ' .indices ' 또는 생략
 
@@ -190,7 +189,7 @@ var b : Int = when(scope) {
 else -> 3
 }
 ```
-📌자바와의 차이점
+`📌자바와의 차이점`
 
 - 표기변경 ' switch ' 에서 ' when ' 으로
 
@@ -213,7 +212,7 @@ else -> 3
 - 표기변경 ' default ' 에서 ' else ' 로
 <br>
 <br>
-  
+
 ___
 
 ## 📚 Array(배열) and List
@@ -255,7 +254,7 @@ var count2 = 0
         }
     }
 ```
-📌자바와의 차이점
+`📌자바와의 차이점`
 - val를 쓰는 이유는 주소값을 참조하므로
 - 1차원 배열
   - var 배열명 = Array<데이터 타입>(갯수, {초기화값})
@@ -278,7 +277,7 @@ var count2 = 0
   - java의 확장형 for문으로 값을 출력하는 것과 같음
 <br>
 <br>
-  
+
 ### 📙List
 <br>
 
@@ -291,12 +290,12 @@ val list1 = listOf(1,"d",11L)
 ```kotlin
 val arraList1 = arrayListOf(1,"d",3)
 ```
-📌List와 mutableList의 차이점
+`📌List와 mutableList의 차이점`
 - mutableList인터페이스를 상속받은 ArrayList는 mutableList의 set메소드가 존재하므로 읽기만 가능한 List와는 다르게 쓰기도 가능
 <br>
 <br>
-  
-___
+
+____
 
 ## 📚 Nullable / NonNull
 <br>
@@ -310,18 +309,18 @@ val name = "joyce"
 val lastName : String? = null
 var fullName = name + (lastName ?: "Hong")
 
-fun igonoreNulls(str: String?){
-    val mNotNull: String = str!!
-
 val email: String? = "tjdgytkd!naver.com"
 email?.let{
         println("my email is $email")
     }
 }
 
+fun igonoreNulls(str: String?){
+    val mNotNull: String = str!!
+
 
 ```
-📌자바와의 차이점
+`📌자바와의 차이점`
 - 자료형뒤에 ' ? '이 붙지 않을 경우, null 입력이 불가능 
 
 - 메소드 사용시에는 객체명뒤에 ' ? '을 붙이면 null값일시, Skip
@@ -331,3 +330,259 @@ email?.let{
 - " 객체명?.let "는 null값이 아닐떄 실행
 
 - ' !! '는 NonNull로 선언
+<br>
+<br>
+
+____
+
+## 📚 Class
+<br>
+
+### 📙생성자
+<br>
+
+```kotlin
+class Human (var name : String){
+
+    init {
+        println("create Human class")
+    }
+}
+
+fun main() {
+    val human1 = Human( "name1" )
+    val human2 = Human( "name2")
+}
+```
+`📌자바와의 차이점`
+- 클래스를 생성할떄 생성자도 같이 생성가능
+
+- 주 생성자와 부 생성자로 분류
+
+- 부 생성자는 ' constructor '로 생성
+
+- 주 생성자의 코드블럭은 ' init{ 내용 } ' 로 작성
+
+- 인스턴스 생성시 Expression로 생성자가 바로 실행
+<br>
+<br>
+
+### 📙오버로딩
+<br>
+
+```kotlin
+class Human(){
+
+    constructor(name : String, age : Int ) : this()  {
+        println("my name: $name \nmy age: $age")
+    }
+
+    constructor(name2 : Int) : this(){
+
+    }
+}
+
+fun main() {
+    val human3 = Human(29)
+}
+```
+`📌자바와의 차이점`
+1. 오버로딩을 위해서는 클래스명 옆에 빈생성자를 붙여준다.
+2. 오버로딩한 생성자 옆에 ' : this() '를 붙여서 부모생성자 호출이 필수
+<br>
+<br>
+
+### 📙오버라이딩
+<br>
+
+```kotlin
+
+open class Human(){
+
+    open fun song(){
+        println("lalala")
+    }
+}
+
+class Korean : Human(){
+
+    override fun song(){
+        println("라라라")
+    }
+
+}
+```
+`📌자바와의 차이점`
+-  Kotlin에서의 class는 final이므로 오버라이딩을 위해서는 모티브 대상의 맨 앞에 ' open '을 붙여준다.
+<br>
+<br>
+
+### 📙Lamda
+<br>
+
+> 기본형 
+
+```kotlin
+val lamdaName = {argumentList -> codeBody}
+
+val calculater  = {number : Int -> number*number}
+
+val nameAge = {name : String, age : Int -> "my name is $name I'm $age"}
+
+fun main(){
+   println(calculater(12))
+    println(nameAge("hyosang", 29))
+}
+```
+> 확장형
+```kotlin
+fun main(){
+   val a = "joyce said"
+
+   println(a.pizzaGreat())
+   
+   println(extnedsString(hyo-sang, 29))
+   println(caculater(97))
+}
+
+val pizzaGreat : String.() -> Stirng = {
+    this + "Pizza is the best!"
+}
+
+val extendsString(name : String, age : Int) {
+    val introduceMyself : String.(Int) -> String = { "I am $this and $it years old" }
+
+    return name.introduceMyself(age)
+}
+val calculater((Int) -> String){
+    when(it){
+        in 0..59 : "fail"
+        in 60..89 : "pass"
+        in 90..100 : "bonus point"
+        else : "Error"
+    }
+}
+```
+> 람다식 parameter로 넣기
+```kotlin
+fun main(){
+    val lamda1 = {number : Double -> number == 4.3213}
+    println(invokeLamda(lamda1)) // true
+
+    println(invokeLamda { it > 3.22 }) // false
+
+}
+
+fun invokeLamda(lamda : (Double) -> Boolean) : Boolean {
+    return lamda(5.2343)
+}
+```
+
+
+`📌특징`
+- 메소드로 사용가능
+
+- 인자가 하나인 경우 ' it '으로 표기 가능
+
+- return으로 사용 가능
+
+- 메소드 인자로 사용가능
+<br>
+<br>
+
+---
+## 📚 DataClass
+
+```kotlin
+data class Ticket(val companyName: String, val name: String, var date: String, var seatNumber : Int)
+// toString(), hashCode(), equals(), copy()
+
+class TicketNormal(val companyName: String, val name: String, var date: String, var seatNumber : Int)
+
+fun main(){
+    val ticketA = Ticket("koreanAir", "hyosang", "2020-02-16", 14)
+    val ticketB = TicketNormal("koreanAir", "hyosang", "2020-02-16", 14)
+
+    println(ticketA) // Ticket(companyName=koreanAir, name=hyosang, date=2020-02-16, seatNumber=14)
+    println(ticketB) // com.example.myapplication.TicketNormal@6fadae5d
+}
+```
+`📌class와 data Class 차이점`
+- toString(), hashCode(), equals(), copy() 메소드를 자동생성
+
+- 클래스명을 print할 경우, haskCode가 아닌 인자값을 그대로 출력
+
+- 내부class에 여러 data class를 넣으면 관리가 용이함
+<br>
+<br>
+
+---
+## 📚 Companion object
+
+```kotlin
+interface IdProvider {
+    fun getId(): Int
+}
+
+class Book private constructor(val id: Int, val name: String) {
+
+    companion object BookFactory : IdProvider {
+
+        override fun getId(): Int {
+            return 444
+        }
+
+        var myBook = "new book"
+        fun create() = Book(getId(), myBook)
+
+    }
+
+}
+
+fun main() {
+
+    val bookId = Book.getId()
+    val book = Book.create()
+
+    println("${bookId}${book.name}") // 444new book
+
+}
+```
+`📌특징`
+- java의 static과 비슷한 존재
+
+- 모든 인스턴스와 공유하는 객체를 만들고 싶을때 사용
+
+- 클래스당 하나만 사용
+<br>
+<br>
+
+---
+## 📚 Object
+
+```kotlin
+object CarFactory {
+    val cars = mutableListOf<Car>()
+    fun makeCar(horsePower: Int) : Car{
+        val car = Car(horsePower)
+        cars.add(car)
+        return car
+    }
+
+}
+
+data class Car(val horsePower : Int)
+
+fun main() {
+    val car = CarFactory.makeCar(10)
+    var car2 = CarFactory.makeCar(200)
+
+    println(car) // Car(horsePower=10)
+    println(car2) // Car(horsePower=200)
+    println(CarFactory.cars.size.toString()) // 2
+}
+```
+`📌특징`
+- java의 SingleThon과 비슷한 존재
+
+- 객체가 한번만 생성되어 불필요한 메모리 낭비가 없음
