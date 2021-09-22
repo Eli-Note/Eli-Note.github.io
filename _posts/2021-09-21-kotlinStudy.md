@@ -80,7 +80,6 @@ val boolNull: boolean? = null
 <br>
 
 ### 📙데이터 형식 (기본형 변수)
-
 |분류|키워드|크기|최소 ~ 최대|
 |:--:|:--:|:--:|:--:|
 |논리형|Boolean|1 bit|true,false
@@ -94,8 +93,9 @@ val boolNull: boolean? = null
 ||
 |실수형|Float|4 byte|약 1.4E-45 - 3.4E+38
 ||Double|8 byte|약 4.9E-324 - 1.7E+308
-<bar>
 
+<bar>
+  
 <bar>
 
 ___
